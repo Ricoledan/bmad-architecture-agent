@@ -1,0 +1,442 @@
+# AWS Services Catalog
+# Comprehensive catalog of AWS services organized by category
+# Last updated: January 2025
+
+metadata:
+  version: "2025.01"
+  provider: "Amazon Web Services"
+  regions: 33
+  services_count: 200+
+  currency: "USD"
+
+compute:
+  ec2:
+    name: "Amazon Elastic Compute Cloud"
+    category: "Virtual Machines"
+    description: "Scalable virtual servers in the cloud"
+    use_cases:
+      - "Web servers and application hosting"
+      - "High-performance computing (HPC)"
+      - "Machine learning training"
+      - "Development and testing environments"
+    pricing_model: "On-Demand, Reserved, Spot, Dedicated"
+    instance_types:
+      - "t3.nano: 2 vCPU, 0.5 GB RAM - $0.0052/hour"
+      - "t3.micro: 2 vCPU, 1 GB RAM - $0.0104/hour"
+      - "m7i.large: 2 vCPU, 8 GB RAM - $0.10 8/hour"
+      - "c7i.xlarge: 4 vCPU, 8 GB RAM - $0.173/hour"
+      - "r7i.xlarge: 4 vCPU, 32 GB RAM - $0.2688/hour"
+    features:
+      - "Auto Scaling"
+      - "Load Balancing"
+      - "Multiple storage options"
+      - "Enhanced networking"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+    
+  lambda:
+    name: "AWS Lambda"
+    category: "Serverless Computing"
+    description: "Run code without provisioning servers"
+    use_cases:
+      - "Event-driven processing"
+      - "API backends"
+      - "Data transformation"
+      - "Scheduled tasks"
+    pricing_model: "Pay per request and duration"
+    pricing:
+      requests: "$0.20 per 1M requests"
+      duration: "$0.0000166667 per GB-second"
+    limits:
+      max_duration: "15 minutes"
+      max_memory: "10,240 MB"
+      max_storage: "10 GB"
+    supported_runtimes:
+      - "Python 3.9, 3.10, 3.11, 3.12"
+      - "Node.js 18.x, 20.x"
+      - "Java 8, 11, 17, 21"
+      - "C# .NET 6, .NET 8"
+      - "Ruby 3.2"
+      - "Custom Runtime (AL2, AL2023)"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  ecs:
+    name: "Amazon Elastic Container Service"
+    category: "Container Orchestration"
+    description: "Fully managed container orchestration service"
+    use_cases:
+      - "Microservices applications"
+      - "Batch processing"
+      - "Web applications"
+      - "CI/CD pipelines"
+    launch_types:
+      - "EC2: Run on your EC2 instances"
+      - "Fargate: Serverless containers"
+    pricing_model: "Pay for underlying compute resources"
+    fargate_pricing:
+      cpu: "$0.04048 per vCPU per hour"
+      memory: "$0.004445 per GB per hour"
+    features:
+      - "Service discovery"
+      - "Load balancing integration"
+      - "Auto scaling"
+      - "Blue/green deployments"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+storage:
+  s3:
+    name: "Amazon Simple Storage Service"
+    category: "Object Storage"
+    description: "Scalable object storage for data backup, archival, and analytics"
+    use_cases:
+      - "Static website hosting"
+      - "Data backup and archival"
+      - "Big data analytics"
+      - "Content distribution"
+    storage_classes:
+      standard:
+        name: "S3 Standard"
+        pricing: "$0.0245 per GB/month"
+        availability: "99.999999999% (11 9's)"
+        use_case: "Frequently accessed data"
+      ia:
+        name: "S3 Infrequent Access"
+        pricing: "$0.0138 per GB/month"
+        retrieval_fee: "$0.01 per GB"
+        use_case: "Infrequently accessed data"
+      glacier:
+        name: "S3 Glacier Instant Retrieval"
+        pricing: "$0.004 per GB/month"
+        retrieval_time: "Milliseconds"
+        use_case: "Long-term archival with instant access"
+      deep_archive:
+        name: "S3 Glacier Deep Archive"
+        pricing: "$0.00099 per GB/month"
+        retrieval_time: "12-48 hours"
+        use_case: "Long-term archival, rarely accessed"
+    features:
+      - "Versioning"
+      - "Cross-region replication"
+      - "Lifecycle management"
+      - "Event notifications"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  ebs:
+    name: "Amazon Elastic Block Store"
+    category: "Block Storage"
+    description: "High-performance block storage for EC2 instances"
+    use_cases:
+      - "Database storage"
+      - "File systems"
+      - "Boot volumes"
+      - "High-performance applications"
+    volume_types:
+      gp3:
+        name: "General Purpose SSD (gp3)"
+        pricing: "$0.08 per GB/month"
+        iops: "3,000 baseline, up to 16,000"
+        throughput: "125 MB/s baseline, up to 1,000 MB/s"
+      gp2:
+        name: "General Purpose SSD (gp2)"
+        pricing: "$0.10 per GB/month"
+        iops: "3 IOPS per GB, up to 16,000"
+        throughput: "Up to 250 MB/s"
+      io2:
+        name: "Provisioned IOPS SSD (io2)"
+        pricing: "$0.125 per GB/month + $0.065 per IOPS/month"
+        iops: "Up to 64,000 IOPS"
+        durability: "99.999% (5 9's)"
+    features:
+      - "Encryption at rest"
+      - "Snapshots"
+      - "Multi-Attach"
+      - "Fast Snapshot Restore"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+database:
+  rds:
+    name: "Amazon Relational Database Service"
+    category: "Managed Relational Database"
+    description: "Managed relational database service for multiple engines"
+    supported_engines:
+      - "MySQL 5.7, 8.0"
+      - "PostgreSQL 11, 12, 13, 14, 15"
+      - "MariaDB 10.4, 10.5, 10.6"
+      - "Oracle 12c, 19c, 21c"
+      - "SQL Server 2017, 2019, 2022"
+    use_cases:
+      - "Web and mobile applications"
+      - "E-commerce platforms"
+      - "Online gaming"
+      - "Enterprise applications"
+    pricing_model: "On-Demand, Reserved Instances"
+    instance_examples:
+      - "db.t4g.micro: 2 vCPU, 1 GB RAM - $0.016/hour"
+      - "db.m7i.large: 2 vCPU, 8 GB RAM - $0.101/hour"
+      - "db.r7i.xlarge: 4 vCPU, 32 GB RAM - $0.269/hour"
+    features:
+      - "Automated backups"
+      - "Multi-AZ deployments"
+      - "Read replicas"
+      - "Performance Insights"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  dynamodb:
+    name: "Amazon DynamoDB"
+    category: "NoSQL Database"
+    description: "Fast and flexible NoSQL database service"
+    use_cases:
+      - "Gaming applications"
+      - "IoT applications"
+      - "Mobile backends"
+      - "Real-time applications"
+    capacity_modes:
+      on_demand:
+        name: "On-Demand"
+        pricing_read: "$0.25 per million read requests"
+        pricing_write: "$1.25 per million write requests"
+        use_case: "Unpredictable workloads"
+      provisioned:
+        name: "Provisioned"
+        pricing_read: "$0.25 per RCU/hour"
+        pricing_write: "$1.25 per WCU/hour"
+        use_case: "Predictable workloads"
+    features:
+      - "Global Tables"
+      - "Point-in-time recovery"
+      - "DynamoDB Streams"
+      - "Auto Scaling"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+networking:
+  vpc:
+    name: "Amazon Virtual Private Cloud"
+    category: "Virtual Networking"
+    description: "Logically isolated section of AWS cloud"
+    use_cases:
+      - "Network isolation"
+      - "Multi-tier applications"
+      - "Hybrid cloud connectivity"
+      - "Security boundaries"
+    components:
+      - "Subnets (public/private)"
+      - "Route tables"
+      - "Internet gateways"
+      - "NAT gateways"
+      - "Security groups"
+      - "Network ACLs"
+    pricing:
+      vpc: "No charge"
+      nat_gateway: "$0.045 per hour + data processing"
+      vpn_connection: "$0.05 per hour"
+    features:
+      - "CIDR block management"
+      - "Flow logs"
+      - "Peering connections"
+      - "Transit Gateway integration"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  cloudfront:
+    name: "Amazon CloudFront"
+    category: "Content Delivery Network"
+    description: "Global content delivery network for faster content delivery"
+    use_cases:
+      - "Website acceleration"
+      - "Video streaming"
+      - "API acceleration"
+      - "Software distribution"
+    pricing_model: "Pay for data transfer and requests"
+    pricing_tiers:
+      - "First 10 TB: $0.085 per GB"
+      - "Next 40 TB: $0.080 per GB"
+      - "Next 100 TB: $0.060 per GB"
+      - "Next 350 TB: $0.040 per GB"
+    features:
+      - "Edge locations (225+)"
+      - "SSL/TLS certificates"
+      - "Real-time logs"
+      - "Security headers"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+analytics:
+  redshift:
+    name: "Amazon Redshift"
+    category: "Data Warehouse"
+    description: "Fast, fully managed data warehouse"
+    use_cases:
+      - "Business intelligence"
+      - "Data analytics"
+      - "Reporting"
+      - "ETL processing"
+    node_types:
+      ra3_xlplus:
+        name: "ra3.xlplus"
+        pricing: "$1.086 per hour"
+        storage: "32 TB managed storage"
+        compute: "4 vCPU, 32 GB RAM"
+      ra3_4xlarge:
+        name: "ra3.4xlarge"
+        pricing: "$3.26 per hour"
+        storage: "128 TB managed storage"
+        compute: "12 vCPU, 96 GB RAM"
+    features:
+      - "Columnar storage"
+      - "Automatic scaling"
+      - "Advanced compression"
+      - "Machine learning integration"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  kinesis:
+    name: "Amazon Kinesis"
+    category: "Real-time Streaming"
+    description: "Real-time data streaming and analytics"
+    services:
+      data_streams:
+        name: "Kinesis Data Streams"
+        pricing: "$0.015 per shard hour + $0.014 per million records"
+        use_case: "Real-time data ingestion"
+      data_firehose:
+        name: "Kinesis Data Firehose"
+        pricing: "$0.029 per GB ingested"
+        use_case: "Data delivery to data stores"
+      analytics:
+        name: "Kinesis Analytics"
+        pricing: "$0.11 per Kinesis Processing Unit hour"
+        use_case: "Real-time analytics"
+    features:
+      - "Auto scaling"
+      - "Real-time processing"
+      - "Integration with AWS services"
+      - "Serverless options"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+security:
+  iam:
+    name: "AWS Identity and Access Management"
+    category: "Identity & Access Management"
+    description: "Manage access to AWS services and resources securely"
+    use_cases:
+      - "User authentication"
+      - "Permission management"
+      - "Role-based access"
+      - "Federation"
+    components:
+      - "Users and groups"
+      - "Roles and policies"
+      - "Multi-factor authentication"
+      - "Access keys"
+    pricing: "No charge for IAM"
+    features:
+      - "Fine-grained permissions"
+      - "Temporary credentials"
+      - "Access analyzer"
+      - "CloudTrail integration"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+  kms:
+    name: "AWS Key Management Service"
+    category: "Key Management"
+    description: "Create and manage cryptographic keys"
+    use_cases:
+      - "Data encryption"
+      - "Digital signing"
+      - "Key rotation"
+      - "Compliance"
+    pricing:
+      customer_managed_keys: "$1 per key per month"
+      key_usage: "$0.03 per 10,000 requests"
+    key_types:
+      - "Symmetric encryption keys"
+      - "Asymmetric encryption keys"
+      - "Asymmetric signing keys"
+      - "HMAC keys"
+    features:
+      - "Automatic key rotation"
+      - "CloudTrail logging"
+      - "Cross-region replication"
+      - "Hardware security modules"
+    compliance: ["FIPS 140-2", "Common Criteria", "SOC", "PCI"]
+
+monitoring:
+  cloudwatch:
+    name: "Amazon CloudWatch"
+    category: "Monitoring & Observability"
+    description: "Monitoring and observability service for AWS resources"
+    use_cases:
+      - "Infrastructure monitoring"
+      - "Application performance"
+      - "Log management"
+      - "Alerting"
+    pricing:
+      metrics: "$0.30 per metric per month"
+      logs_ingestion: "$0.50 per GB ingested"
+      logs_storage: "$0.03 per GB per month"
+    components:
+      - "Metrics and alarms"
+      - "Logs and insights"
+      - "Dashboards"
+      - "Events and rules"
+    features:
+      - "Custom metrics"
+      - "Log analytics"
+      - "Automated actions"
+      - "Cross-service integration"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+ai_ml:
+  sagemaker:
+    name: "Amazon SageMaker"
+    category: "Machine Learning Platform"
+    description: "Fully managed machine learning service"
+    use_cases:
+      - "Model development"
+      - "Model training"
+      - "Model deployment"
+      - "MLOps"
+    pricing_components:
+      notebook_instances: "$0.0464 - $13.32 per hour"
+      training: "$0.24 - $31.218 per hour"
+      hosting: "$0.048 - $6.264 per hour"
+    features:
+      - "Jupyter notebooks"
+      - "AutoML capabilities"
+      - "Model registry"
+      - "A/B testing"
+    algorithms:
+      - "Built-in algorithms"
+      - "Pre-trained models"
+      - "Custom algorithms"
+      - "Marketplace algorithms"
+    compliance: ["SOC", "PCI", "HIPAA", "FedRAMP"]
+
+# Cost Optimization Guidelines
+cost_optimization:
+  right_sizing:
+    description: "Match instance types to workload requirements"
+    tools: ["AWS Compute Optimizer", "CloudWatch metrics"]
+    savings_potential: "10-20%"
+    
+  reserved_instances:
+    description: "Commit to 1-3 year terms for predictable workloads"
+    savings_potential: "Up to 75%"
+    payment_options: ["All Upfront", "Partial Upfront", "No Upfront"]
+    
+  spot_instances:
+    description: "Use spare EC2 capacity for fault-tolerant workloads"
+    savings_potential: "Up to 90%"
+    use_cases: ["Batch processing", "CI/CD", "Testing"]
+    
+  storage_optimization:
+    description: "Use appropriate storage classes and lifecycle policies"
+    strategies: ["S3 Intelligent Tiering", "EBS gp3 over gp2", "Lifecycle transitions"]
+    savings_potential: "20-50%"
+
+# Security Best Practices
+security_best_practices:
+  - "Enable MFA for all user accounts"
+  - "Use IAM roles instead of access keys when possible"
+  - "Encrypt data at rest and in transit"
+  - "Enable CloudTrail for API logging"
+  - "Implement least privilege access principles"
+  - "Regularly rotate access keys and passwords"
+  - "Use AWS Config for compliance monitoring"
+  - "Enable GuardDuty for threat detection"

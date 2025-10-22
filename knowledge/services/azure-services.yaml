@@ -1,0 +1,549 @@
+# Azure Services Catalog
+# Comprehensive catalog of Microsoft Azure services organized by category
+# Last updated: January 2025
+
+metadata:
+  version: "2025.01"
+  provider: "Microsoft Azure"
+  regions: 60+
+  services_count: 200+
+  currency: "USD"
+
+compute:
+  virtual_machines:
+    name: "Azure Virtual Machines"
+    category: "Infrastructure as a Service"
+    description: "On-demand, scalable computing resources"
+    use_cases:
+      - "Web servers and applications"
+      - "Development and testing"
+      - "High-performance computing"
+      - "Enterprise applications"
+    pricing_model: "Pay-as-you-go, Reserved, Spot"
+    vm_series:
+      b_series:
+        name: "B-series (Burstable)"
+        example: "B2s: 2 vCPU, 4 GB RAM - $0.041/hour"
+        use_case: "Variable workloads"
+      d_series:
+        name: "D-series (General Purpose)"
+        example: "D4s v5: 4 vCPU, 16 GB RAM - $0.188/hour"
+        use_case: "Balanced compute and memory"
+      f_series:
+        name: "F-series (Compute Optimized)"
+        example: "F4s v2: 4 vCPU, 8 GB RAM - $0.164/hour"
+        use_case: "High CPU-to-memory ratio"
+      e_series:
+        name: "E-series (Memory Optimized)"
+        example: "E4s v5: 4 vCPU, 32 GB RAM - $0.246/hour"
+        use_case: "High memory-to-CPU ratio"
+    features:
+      - "Azure Hybrid Benefit"
+      - "Availability Sets and Zones"
+      - "Virtual Machine Scale Sets"
+      - "Managed Disks"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  functions:
+    name: "Azure Functions"
+    category: "Serverless Computing"
+    description: "Event-driven serverless compute service"
+    use_cases:
+      - "Event processing"
+      - "API backends"
+      - "Scheduled tasks"
+      - "Integration workflows"
+    pricing_plans:
+      consumption:
+        name: "Consumption Plan"
+        pricing: "$0.20 per million executions + $0.000016 per GB-s"
+        execution_time: "10 minutes max"
+        memory: "1.5 GB max"
+      premium:
+        name: "Premium Plan"
+        pricing: "Starting at $0.18/hour"
+        execution_time: "Unlimited"
+        memory: "14 GB max"
+        features: ["Pre-warmed instances", "VNET connectivity"]
+      dedicated:
+        name: "Dedicated Plan"
+        pricing: "App Service Plan pricing"
+        features: ["Predictable pricing", "Advanced scaling"]
+    supported_languages:
+      - "C# (.NET 6, .NET 8)"
+      - "JavaScript/TypeScript (Node.js 18, 20)"
+      - "Python 3.9, 3.10, 3.11"
+      - "Java 8, 11, 17, 21"
+      - "PowerShell Core 7"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  container_instances:
+    name: "Azure Container Instances"
+    category: "Containers as a Service"
+    description: "Run containers without managing infrastructure"
+    use_cases:
+      - "Batch processing"
+      - "Task automation"
+      - "Development environments"
+      - "Event-driven applications"
+    pricing:
+      linux: "$0.0000139 per vCPU/second + $0.0000015 per GB/second"
+      windows: "$0.0000218 per vCPU/second + $0.0000030 per GB/second"
+    features:
+      - "Fast startup times"
+      - "Custom sizes"
+      - "Persistent storage"
+      - "Virtual network integration"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  container_apps:
+    name: "Azure Container Apps"
+    category: "Serverless Containers"
+    description: "Fully managed serverless container service"
+    use_cases:
+      - "Microservices"
+      - "API endpoints"
+      - "Background processing"
+      - "Event-driven applications"
+    pricing:
+      consumption: "Pay for actual usage only"
+      dedicated: "Dedicated environment pricing"
+    features:
+      - "Auto-scaling to zero"
+      - "Built-in service discovery"
+      - "Dapr integration"
+      - "Traffic splitting"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+storage:
+  storage_accounts:
+    name: "Azure Storage"
+    category: "Cloud Storage"
+    description: "Scalable cloud storage for data, apps, and workloads"
+    use_cases:
+      - "Data backup and archive"
+      - "Content distribution"
+      - "Big data analytics"
+      - "Static website hosting"
+    storage_types:
+      blob_storage:
+        name: "Blob Storage"
+        access_tiers:
+          hot:
+            pricing: "$0.0208 per GB/month"
+            access_cost: "$0.0004 per 10,000 operations"
+            use_case: "Frequently accessed data"
+          cool:
+            pricing: "$0.0152 per GB/month"
+            access_cost: "$0.01 per 10,000 operations"
+            use_case: "Infrequently accessed data (30 days)"
+          cold:
+            pricing: "$0.0036 per GB/month"
+            access_cost: "$0.018 per 10,000 operations"
+            use_case: "Rarely accessed data (90+ days)"
+          archive:
+            pricing: "$0.00099 per GB/month"
+            access_cost: "$5.00 per 10,000 operations"
+            use_case: "Rarely accessed data (180+ days)"
+      file_storage:
+        name: "Azure Files"
+        pricing: "$0.06 per GB/month"
+        features: ["SMB and NFS protocols", "Fully managed", "Backup and snapshot"]
+    features:
+      - "Geo-redundant storage"
+      - "Lifecycle management"
+      - "Data encryption"
+      - "Advanced threat protection"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+database:
+  sql_database:
+    name: "Azure SQL Database"
+    category: "Platform as a Service Database"
+    description: "Intelligent, fully managed relational database service"
+    use_cases:
+      - "Modern cloud applications"
+      - "Data warehousing"
+      - "Analytics workloads"
+      - "Multi-tenant SaaS applications"
+    purchasing_models:
+      dtu:
+        name: "DTU-based"
+        pricing: "$4.90 - $4,665 per month"
+        use_case: "Simple, pre-configured resource bundles"
+      vcore:
+        name: "vCore-based"
+        provisioned: "$0.11 - $7.27 per vCore/hour"
+        serverless: "$0.52 - $16.56 per vCore/hour (when active)"
+        use_case: "Flexible resource configuration"
+    service_tiers:
+      - "Basic: Development and small applications"
+      - "Standard: General-purpose workloads"
+      - "Premium: I/O intensive applications"
+      - "Hyperscale: Large databases up to 100 TB"
+    features:
+      - "Automatic tuning"
+      - "Threat detection"
+      - "Backup and restore"
+      - "Active geo-replication"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  cosmos_db:
+    name: "Azure Cosmos DB"
+    category: "NoSQL Database"
+    description: "Globally distributed, multi-model database service"
+    use_cases:
+      - "IoT applications"
+      - "Gaming applications"
+      - "Mobile applications"
+      - "Real-time analytics"
+    apis:
+      - "NoSQL API (DocumentDB)"
+      - "MongoDB API"
+      - "Cassandra API"
+      - "Gremlin (Graph) API"
+      - "Table API"
+      - "PostgreSQL API"
+    pricing_models:
+      provisioned:
+        pricing: "$0.008 per 100 RU/s per hour"
+        use_case: "Predictable workloads"
+      serverless:
+        pricing: "$0.25 per million RUs consumed"
+        use_case: "Intermittent workloads"
+      autoscale:
+        pricing: "$0.012 per 100 RU/s per hour"
+        use_case: "Variable workloads"
+    features:
+      - "Global distribution"
+      - "Automatic scaling"
+      - "Multiple consistency levels"
+      - "99.999% availability SLA"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+networking:
+  virtual_network:
+    name: "Azure Virtual Network"
+    category: "Network Infrastructure"
+    description: "Private network in Azure for your resources"
+    use_cases:
+      - "Secure communication"
+      - "Network isolation"
+      - "Hybrid connectivity"
+      - "Traffic filtering"
+    components:
+      - "Subnets"
+      - "Network Security Groups"
+      - "Route tables"
+      - "Virtual network gateways"
+      - "Load balancers"
+    pricing:
+      vnet: "No charge for VNet"
+      vpn_gateway: "$0.035 - $0.65 per hour"
+      expressroute: "$55 - $10,560 per month"
+    features:
+      - "Private IP addressing"
+      - "DNS resolution"
+      - "Service endpoints"
+      - "Private endpoints"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  front_door:
+    name: "Azure Front Door"
+    category: "Global Load Balancer & CDN"
+    description: "Scalable and secure entry point for fast delivery of global applications"
+    use_cases:
+      - "Global load balancing"
+      - "Application acceleration"
+      - "SSL offloading"
+      - "DDoS protection"
+    pricing_tiers:
+      standard:
+        name: "Standard"
+        pricing: "$0.25 per rule per month + $0.0075 per GB"
+        features: ["Basic routing", "Caching", "SSL termination"]
+      premium:
+        name: "Premium"
+        pricing: "$0.35 per rule per month + $0.008 per GB"
+        features: ["Advanced WAF", "Bot protection", "Private link"]
+    features:
+      - "SSL/TLS termination"
+      - "Web Application Firewall"
+      - "Custom domains"
+      - "Health probes"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+analytics:
+  synapse_analytics:
+    name: "Azure Synapse Analytics"
+    category: "Analytics Service"
+    description: "Limitless analytics service with data integration, data warehousing, and analytics"
+    use_cases:
+      - "Data warehousing"
+      - "Big data analytics"
+      - "Data integration"
+      - "Machine learning"
+    components:
+      sql_pools:
+        name: "Dedicated SQL Pools"
+        pricing: "$1.20 - $30.00 per DWU/hour"
+        use_case: "Data warehousing"
+      spark_pools:
+        name: "Apache Spark Pools"
+        pricing: "$0.20 - $2.50 per node/hour"
+        use_case: "Big data processing"
+      pipelines:
+        name: "Synapse Pipelines"
+        pricing: "$1.00 per 1,000 runs"
+        use_case: "Data integration"
+    features:
+      - "Unified workspace"
+      - "Code-free data integration"
+      - "Built-in ML capabilities"
+      - "Power BI integration"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  stream_analytics:
+    name: "Azure Stream Analytics"
+    category: "Real-time Analytics"
+    description: "Real-time analytics on streaming data"
+    use_cases:
+      - "IoT analytics"
+      - "Real-time dashboards"
+      - "Fraud detection"
+      - "Log analytics"
+    pricing:
+      streaming_units: "$0.11 per streaming unit per hour"
+      minimum_units: 1
+      maximum_units: 600
+    input_sources:
+      - "Event Hubs"
+      - "IoT Hub"
+      - "Blob Storage"
+      - "Data Lake Storage"
+    output_sinks:
+      - "SQL Database"
+      - "Cosmos DB"
+      - "Power BI"
+      - "Storage accounts"
+    features:
+      - "SQL-like query language"
+      - "Temporal functions"
+      - "Geospatial functions"
+      - "Machine learning integration"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  data_factory:
+    name: "Azure Data Factory"
+    category: "Data Integration"
+    description: "Cloud-based data integration service"
+    use_cases:
+      - "ETL/ELT processes"
+      - "Data migration"
+      - "Data orchestration"
+      - "Hybrid data integration"
+    pricing:
+      orchestration: "$1.00 per 1,000 runs"
+      data_movement: "$0.25 per hour"
+      pipeline_activities: "$0.005 per 1,000 activities"
+    features:
+      - "Visual data flows"
+      - "100+ connectors"
+      - "Mapping data flows"
+      - "Integration runtime"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+security:
+  active_directory:
+    name: "Azure Active Directory"
+    category: "Identity and Access Management"
+    description: "Cloud-based identity and access management service"
+    use_cases:
+      - "Single sign-on"
+      - "Multi-factor authentication"
+      - "Conditional access"
+      - "Identity governance"
+    editions:
+      free:
+        name: "Azure AD Free"
+        pricing: "No charge"
+        features: ["Basic SSO", "User management", "Group management"]
+      p1:
+        name: "Azure AD Premium P1"
+        pricing: "$6 per user per month"
+        features: ["Conditional access", "Self-service password reset", "Hybrid identity"]
+      p2:
+        name: "Azure AD Premium P2"
+        pricing: "$9 per user per month"
+        features: ["Identity protection", "Privileged identity management", "Access reviews"]
+    features:
+      - "SAML and OAuth protocols"
+      - "Application proxy"
+      - "B2B collaboration"
+      - "Device management"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  key_vault:
+    name: "Azure Key Vault"
+    category: "Key Management Service"
+    description: "Safeguard cryptographic keys and secrets"
+    use_cases:
+      - "Key management"
+      - "Secret management"
+      - "Certificate management"
+      - "Hardware security modules"
+    pricing:
+      operations: "$0.03 per 10,000 operations"
+      certificates: "$3.00 per certificate per month"
+      hsm_keys: "$1.00 per key per month"
+    features:
+      - "FIPS 140-2 Level 2 validated HSMs"
+      - "Role-based access control"
+      - "Audit logging"
+      - "Network isolation"
+    compliance: ["FIPS 140-2", "Common Criteria", "SOC", "ISO 27001"]
+
+  defender_for_cloud:
+    name: "Microsoft Defender for Cloud"
+    category: "Cloud Security Posture Management"
+    description: "Unified security management and advanced threat protection"
+    use_cases:
+      - "Security posture management"
+      - "Threat protection"
+      - "Compliance monitoring"
+      - "DevSecOps integration"
+    pricing:
+      foundational: "Free (basic security features)"
+      defender_plans: "$15-$60 per resource per month"
+    features:
+      - "Secure score"
+      - "Regulatory compliance dashboard"
+      - "Just-in-time VM access"
+      - "Adaptive application controls"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+monitoring:
+  monitor:
+    name: "Azure Monitor"
+    category: "Monitoring and Diagnostics"
+    description: "Full-stack monitoring service for applications and infrastructure"
+    use_cases:
+      - "Application performance monitoring"
+      - "Infrastructure monitoring"
+      - "Log analytics"
+      - "Alerting"
+    components:
+      metrics:
+        name: "Azure Monitor Metrics"
+        pricing: "$0.12 per metric per month"
+        retention: "93 days"
+      logs:
+        name: "Azure Monitor Logs"
+        pricing: "$2.76 per GB ingested"
+        retention: "90 days default"
+      application_insights:
+        name: "Application Insights"
+        pricing: "$2.76 per GB ingested"
+        features: ["Performance monitoring", "Dependency tracking", "Live metrics"]
+    features:
+      - "Custom dashboards"
+      - "Automated responses"
+      - "Smart detection"
+      - "Workbooks"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+ai_ml:
+  machine_learning:
+    name: "Azure Machine Learning"
+    category: "Machine Learning Platform"
+    description: "Cloud-based environment for training, deploying, and managing ML models"
+    use_cases:
+      - "Model development"
+      - "Automated ML"
+      - "Model deployment"
+      - "MLOps"
+    compute_instances:
+      standard_ds3_v2: "$0.169 per hour"
+      standard_nc6s_v3: "$3.06 per hour"
+      standard_nd96asr_v4: "$32.77 per hour"
+    pricing_components:
+      studio: "No charge"
+      compute: "Pay for underlying compute"
+      automated_ml: "No additional charge"
+      designer: "No additional charge"
+    features:
+      - "Drag-and-drop designer"
+      - "Automated machine learning"
+      - "Model registry"
+      - "Responsible AI tools"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+  cognitive_services:
+    name: "Azure Cognitive Services"
+    category: "AI APIs"
+    description: "Pre-built AI services for vision, speech, language, and decision"
+    services:
+      computer_vision:
+        name: "Computer Vision"
+        pricing: "$1.00 - $15.00 per 1,000 transactions"
+        capabilities: ["Image analysis", "OCR", "Face detection"]
+      speech:
+        name: "Speech Services"
+        pricing: "$1.00 - $15.00 per hour"
+        capabilities: ["Speech-to-text", "Text-to-speech", "Translation"]
+      language:
+        name: "Language Understanding"
+        pricing: "$1.50 - $5.50 per 1,000 transactions"
+        capabilities: ["Text analytics", "Language detection", "Translation"]
+      openai:
+        name: "Azure OpenAI Service"
+        pricing: "$0.002 - $0.12 per 1,000 tokens"
+        capabilities: ["GPT models", "DALL-E", "Codex", "Embeddings"]
+    features:
+      - "REST APIs and SDKs"
+      - "Container support"
+      - "Custom models"
+      - "Multi-language support"
+    compliance: ["SOC", "ISO 27001", "HIPAA", "FedRAMP"]
+
+# Cost Optimization Guidelines
+cost_optimization:
+  azure_hybrid_benefit:
+    description: "Use existing Windows Server and SQL Server licenses"
+    savings_potential: "Up to 55% on Windows VMs, up to 85% on SQL"
+    applicable_to: ["Windows Server", "SQL Server", "SUSE Linux"]
+    
+  reserved_instances:
+    description: "Commit to 1 or 3-year terms for compute resources"
+    savings_potential: "Up to 72% on VMs"
+    payment_options: ["Monthly", "Upfront"]
+    
+  spot_vms:
+    description: "Use spare Azure capacity at discounted rates"
+    savings_potential: "Up to 90%"
+    use_cases: ["Batch processing", "Dev/test", "Analytics"]
+    
+  right_sizing:
+    description: "Match VM sizes to actual usage patterns"
+    tools: ["Azure Advisor", "Azure Monitor"]
+    savings_potential: "10-20%"
+
+  azure_savings_plans:
+    description: "Flexible savings plans for compute services"
+    savings_potential: "Up to 65%"
+    coverage: ["VMs", "App Service", "Functions", "Premium Storage"]
+
+# Security Best Practices
+security_best_practices:
+  - "Enable Azure AD multi-factor authentication"
+  - "Use managed identities for Azure resources"
+  - "Implement network security groups and application security groups"
+  - "Enable Microsoft Defender for Cloud recommendations"
+  - "Use Azure Key Vault for secrets management"
+  - "Enable diagnostic logging and monitoring"
+  - "Implement just-in-time VM access"
+  - "Use Azure Policy for governance and compliance"
+  - "Enable Microsoft Defender for comprehensive threat protection"
+  - "Implement least privilege access principles"
+  - "Use Azure Private Link for secure connectivity"
+  - "Enable Azure AD Conditional Access policies"
