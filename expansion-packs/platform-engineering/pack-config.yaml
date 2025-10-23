@@ -1,0 +1,60 @@
+# Platform Engineering Expansion Pack Configuration
+# Powered by BMAD™ Core
+
+pack:
+  id: platform-engineering
+  name: Platform Engineering
+  version: 1.0.0
+  description: DevOps, CI/CD, Kubernetes, Infrastructure as Code, and observability
+  author: BMAD Architecture Suite
+  license: MIT
+
+agents:
+  - id: platform-engineer
+    name: Sam
+    file: agents/platform-engineer.md
+    title: Platform Engineer
+    icon: ⚙️
+    whenToUse: Use for CI/CD pipeline design, Kubernetes architecture, IaC, GitOps, and observability
+
+tasks:
+  - design-cicd-pipeline
+  - design-kubernetes-architecture
+  - design-iac-strategy
+  - design-observability
+  - design-gitops-workflow
+
+templates:
+  - pipeline-template
+  - kubernetes-template
+  - iac-template
+  - observability-template
+
+knowledge:
+  patterns:
+    - cicd-patterns
+    - kubernetes-patterns
+    - gitops-patterns
+    - deployment-strategies
+    - observability-patterns
+  best-practices:
+    - pipeline-best-practices
+    - kubernetes-best-practices
+    - iac-best-practices
+    - security-practices
+    - monitoring-practices
+  tools:
+    - ci-cd-tools
+    - kubernetes-tools
+    - iac-tools
+    - monitoring-tools
+
+integrations:
+  - cloud-architecture
+  - data-architecture
+
+outputs:
+  pipelineSpecs: docs/platform/pipelines
+  kubernetesConfigs: docs/platform/kubernetes
+  iacTemplates: docs/platform/iac
+  platformDocs: docs/platform.md

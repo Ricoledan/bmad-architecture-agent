@@ -5,7 +5,11 @@ markdownExploder: true
 
 # Expansion Packs
 expansionPacks:
-  - cloud-architecture
+  - cloud-architecture        # Cloud infrastructure design
+  - data-architecture         # Database and data pipeline design
+  - integration-patterns      # API and system integration
+  - platform-engineering      # CI/CD, Kubernetes, IaC
+  - architecture-governance   # ADRs, standards, reviews
 
 # Quality Assurance
 qa:
@@ -34,6 +38,36 @@ security:
   securityAssessmentFile: docs/security-assessment.md
   securityLocation: docs/security
 
+# Data Architecture
+dataArchitecture:
+  dataArchitectureFile: docs/data-architecture.md
+  dataArchitectureLocation: docs/data-architecture
+  erdLocation: docs/data-architecture/erd
+  pipelineLocation: docs/data-architecture/pipelines
+
+# Integration Architecture
+integration:
+  integrationFile: docs/integration.md
+  integrationLocation: docs/integration
+  apiSpecsLocation: docs/integration/api-specs
+  eventSchemasLocation: docs/integration/event-schemas
+
+# Platform Engineering
+platform:
+  platformFile: docs/platform.md
+  platformLocation: docs/platform
+  pipelinesLocation: docs/platform/pipelines
+  kubernetesLocation: docs/platform/kubernetes
+  iacLocation: docs/platform/iac
+
+# Architecture Governance
+governance:
+  governanceFile: docs/governance.md
+  adrsLocation: docs/architecture/decisions
+  techRadarFile: docs/architecture/tech-radar.md
+  standardsLocation: docs/architecture/standards
+  reviewsLocation: docs/architecture/reviews
+
 # Custom Technical Documents
 customTechnicalDocuments:
   - docs/architecture/tech-stack.md
@@ -44,10 +78,10 @@ customTechnicalDocuments:
 devStoryLocation: docs/stories
 
 # Slash Command Prefix
-slashPrefix: CloudArch
+slashPrefix: ArchSuite
 
 # Project Metadata
 project:
-  name: Cloud Architecture Agent
-  description: BMAD expansion pack for cloud architecture design and analysis
-  version: 1.0.0
+  name: BMAD Architecture Suite
+  description: Complete expert architect toolkit with cloud, data, integration, platform, and governance
+  version: 2.0.0

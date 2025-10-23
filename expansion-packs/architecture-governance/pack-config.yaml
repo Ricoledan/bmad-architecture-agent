@@ -1,0 +1,59 @@
+# Architecture Governance Expansion Pack Configuration
+# Powered by BMAD™ Core
+
+pack:
+  id: architecture-governance
+  name: Architecture Governance
+  version: 1.0.0
+  description: Architecture Decision Records, standards, tech radar, and architecture reviews
+  author: BMAD Architecture Suite
+  license: MIT
+
+agents:
+  - id: architecture-governor
+    name: Quinn
+    file: agents/architecture-governor.md
+    title: Architecture Governor
+    icon: 📋
+    whenToUse: Use for creating ADRs, conducting architecture reviews, maintaining tech radar, and establishing standards
+
+tasks:
+  - create-adr
+  - conduct-architecture-review
+  - maintain-tech-radar
+  - define-standards
+  - assess-technical-debt
+
+templates:
+  - adr-template
+  - review-checklist-template
+  - tech-radar-template
+  - standards-template
+  - technical-debt-template
+
+knowledge:
+  frameworks:
+    - adr-framework
+    - review-frameworks
+    - decision-frameworks
+  standards:
+    - coding-standards
+    - architecture-principles
+    - quality-attributes
+  processes:
+    - review-process
+    - adr-process
+    - exception-process
+
+integrations:
+  - cloud-architecture
+  - data-architecture
+  - integration-patterns
+  - platform-engineering
+
+outputs:
+  adrs: docs/architecture/decisions
+  techRadar: docs/architecture/tech-radar.md
+  standards: docs/architecture/standards
+  reviews: docs/architecture/reviews
+  governanceDocs: docs/governance.md

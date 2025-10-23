@@ -1,0 +1,61 @@
+# Integration Patterns Expansion Pack Configuration
+# Powered by BMAD™ Core
+
+pack:
+  id: integration-patterns
+  name: Integration Patterns
+  version: 1.0.0
+  description: API design, messaging architectures, and system integration patterns
+  author: BMAD Architecture Suite
+  license: MIT
+
+agents:
+  - id: integration-architect
+    name: River
+    file: agents/integration-architect.md
+    title: Integration Architect
+    icon: 🔗
+    whenToUse: Use for API design, messaging patterns, event-driven architecture, and system integration
+
+tasks:
+  - design-api
+  - design-messaging
+  - design-integration
+  - design-event-driven
+  - api-versioning-strategy
+
+templates:
+  - api-spec-template
+  - event-schema-template
+  - integration-doc-template
+  - message-flow-template
+
+knowledge:
+  patterns:
+    - rest-api-patterns
+    - graphql-patterns
+    - grpc-patterns
+    - event-driven-patterns
+    - messaging-patterns
+    - integration-patterns
+  best-practices:
+    - api-design
+    - api-security
+    - error-handling
+    - rate-limiting
+    - versioning
+  protocols:
+    - http-rest
+    - graphql
+    - grpc
+    - websocket
+    - mqtt
+
+integrations:
+  - cloud-architecture
+  - data-architecture
+
+outputs:
+  apiSpecs: docs/integration/api-specs
+  eventSchemas: docs/integration/event-schemas
+  integrationDocs: docs/integration.md

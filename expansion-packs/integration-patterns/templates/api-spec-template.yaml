@@ -1,0 +1,353 @@
+# OpenAPI 3.0 Specification Template
+
+openapi: 3.0.3
+info:
+  title: "[API Name]"
+  description: "[Detailed API description and purpose]"
+  version: "1.0.0"
+  contact:
+    name: "[Team Name]"
+    email: "[team@example.com]"
+    url: "[https://developer.example.com]"
+  license:
+    name: "[MIT, Apache 2.0, Proprietary, etc.]"
+    url: "[License URL]"
+
+servers:
+  - url: https://api.example.com/v1
+    description: Production
+  - url: https://api-staging.example.com/v1
+    description: Staging
+  - url: http://localhost:8080/v1
+    description: Local development
+
+tags:
+  - name: "[Resource Category]"
+    description: "[Description of this resource category]"
+
+paths:
+  /resources:
+    get:
+      summary: "[List all resources]"
+      description: "[Detailed description of what this endpoint does]"
+      operationId: listResources
+      tags: ["[Resource Category]"]
+      parameters:
+        - name: page
+          in: query
+          description: "Page number for pagination"
+          required: false
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: limit
+          in: query
+          description: "Number of items per page"
+          required: false
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: sort
+          in: query
+          description: "Sort field and direction (e.g., created_at:desc)"
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Resource'
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - bearerAuth: []
+
+    post:
+      summary: "[Create a new resource]"
+      operationId: createResource
+      tags: ["[Resource Category]"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateResourceRequest'
+      responses:
+        '201':
+          description: "Resource created successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+      security:
+        - bearerAuth: []
+
+  /resources/{id}:
+    get:
+      summary: "[Get resource by ID]"
+      operationId: getResource
+      tags: ["[Resource Category]"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - bearerAuth: []
+
+    patch:
+      summary: "[Update resource]"
+      operationId: updateResource
+      tags: ["[Resource Category]"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateResourceRequest'
+      responses:
+        '200':
+          description: "Resource updated successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+      security:
+        - bearerAuth: []
+
+    delete:
+      summary: "[Delete resource]"
+      operationId: deleteResource
+      tags: ["[Resource Category]"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: "Resource deleted successfully"
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "JWT token obtained from /auth/login"
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  schemas:
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        name:
+          type: string
+          example: "[Resource name]"
+        description:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [active, inactive, pending]
+        created_at:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+      required:
+        - id
+        - name
+        - status
+        - created_at
+
+    CreateResourceRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 1000
+      required:
+        - name
+
+    UpdateResourceRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 1000
+        status:
+          type: string
+          enum: [active, inactive]
+
+    PaginationMeta:
+      type: object
+      properties:
+        page:
+          type: integer
+          example: 1
+        limit:
+          type: integer
+          example: 20
+        total_pages:
+          type: integer
+          example: 10
+        total_items:
+          type: integer
+          example: 200
+
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "https://api.example.com/errors/validation-error"
+        title:
+          type: string
+          example: "Validation Error"
+        status:
+          type: integer
+          example: 422
+        detail:
+          type: string
+          example: "The request body contains invalid data"
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+      required:
+        - type
+        - title
+        - status
+
+  responses:
+    BadRequest:
+      description: "Bad request - invalid parameters"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    Unauthorized:
+      description: "Unauthorized - authentication required"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    NotFound:
+      description: "Resource not found"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    ValidationError:
+      description: "Validation error - invalid request body"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    TooManyRequests:
+      description: "Rate limit exceeded"
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+          description: "Request limit per hour"
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+          description: "Remaining requests"
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: "Time when limit resets (Unix timestamp)"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    InternalServerError:
+      description: "Internal server error"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+security:
+  - bearerAuth: []

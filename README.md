@@ -1,6 +1,6 @@
-# BMAD Cloud Architecture Expansion Pack
+# BMAD Architecture Suite
 
-A comprehensive cloud architecture design and analysis expansion pack for the **BMAD-METHOD** (Building Multi-Agent Designs) framework.
+A complete expert architect toolkit with 5 specialized expansion packs for the **BMAD-METHOD** (Building Multi-Agent Designs) framework, covering cloud infrastructure, data architecture, API integration, platform engineering, and governance.
 
 ## What is BMAD?
 
@@ -15,52 +15,98 @@ A comprehensive cloud architecture design and analysis expansion pack for the **
 
 Learn more: [BMAD-METHOD Repository](https://github.com/bmad-code-org/BMAD-METHOD)
 
-## This Expansion Pack
+## Architecture Suite Overview
 
-This expansion pack adds specialized cloud architecture agents to BMAD:
+This suite provides 5 expansion packs with 8 specialized architecture agents covering all aspects of expert architecture work:
 
+### Cloud Infrastructure (cloud-architecture)
 - **Infrastructure Analyst** (Alex) - Requirements gathering and feasibility
-- **Cloud Architect** (Morgan) - Architecture design and service selection
+- **Cloud Architect** (Morgan) - Cloud infrastructure design and service selection
 - **Cost Optimizer** (Taylor) - Cost analysis and optimization
 - **Security Reviewer** (Jordan) - Security assessment and compliance
+
+### Data Architecture (data-architecture)
+- **Data Architect** (Casey) - Database design, data modeling, ETL/ELT pipelines, data governance
+
+### Integration Patterns (integration-patterns)
+- **Integration Architect** (River) - API design (REST, GraphQL, gRPC), messaging, event-driven architecture
+
+### Platform Engineering (platform-engineering)
+- **Platform Engineer** (Sam) - CI/CD pipelines, Kubernetes, Infrastructure as Code, GitOps, observability
+
+### Architecture Governance (architecture-governance)
+- **Architecture Governor** (Quinn) - ADRs, architecture reviews, tech radar, standards, technical debt
 
 ## Project Structure
 
 ```
 bmad-architecture-agent/
 ├── .bmad-core/                    # BMAD core framework (installed via npm)
-│   ├── agents/                    # Core BMAD agents (analyst, pm, architect, dev, qa, etc.)
+│   ├── agents/                    # Core BMAD agents (analyst, pm, architect, dev, qa)
 │   ├── tasks/                     # Core tasks
 │   ├── templates/                 # Core templates
 │   └── core-config.yaml          # Project configuration
 │
 ├── expansion-packs/
-│   └── cloud-architecture/        # THIS EXPANSION PACK
-│       ├── agents/                # Cloud-specific agents
-│       │   ├── infrastructure-analyst.md
-│       │   ├── cloud-architect.md
-│       │   ├── cost-optimizer.md
-│       │   └── security-reviewer.md
-│       ├── tasks/                 # Cloud-specific tasks
-│       ├── templates/             # Cloud-specific templates
-│       ├── data/                  # Cloud services, compliance data
-│       └── pack-config.yaml       # Expansion pack configuration
+│   ├── cloud-architecture/        # Cloud Infrastructure Pack
+│   │   ├── agents/                # Alex, Morgan, Taylor, Jordan
+│   │   ├── tasks/                 # Cloud-specific tasks
+│   │   ├── templates/             # Cloud templates
+│   │   ├── data/                  # Cloud services, compliance data
+│   │   └── pack-config.yaml
+│   │
+│   ├── data-architecture/         # Data Architecture Pack
+│   │   ├── agents/                # Casey (Data Architect)
+│   │   ├── tasks/                 # Database, pipeline, migration tasks
+│   │   ├── templates/             # ERD, data dictionary, pipeline specs
+│   │   ├── data/                  # Database patterns, best practices
+│   │   └── pack-config.yaml
+│   │
+│   ├── integration-patterns/      # Integration Pack
+│   │   ├── agents/                # River (Integration Architect)
+│   │   ├── tasks/                 # API, messaging, event-driven tasks
+│   │   ├── templates/             # API specs, event schemas
+│   │   ├── data/                  # API patterns, protocols
+│   │   └── pack-config.yaml
+│   │
+│   ├── platform-engineering/      # Platform Engineering Pack
+│   │   ├── agents/                # Sam (Platform Engineer)
+│   │   ├── tasks/                 # CI/CD, Kubernetes, IaC tasks
+│   │   ├── templates/             # Pipeline, K8s, IaC templates
+│   │   ├── data/                  # DevOps patterns, best practices
+│   │   └── pack-config.yaml
+│   │
+│   └── architecture-governance/   # Governance Pack
+│       ├── agents/                # Quinn (Architecture Governor)
+│       ├── tasks/                 # ADR, review, tech radar tasks
+│       ├── templates/             # ADR, review, standards templates
+│       ├── data/                  # Governance frameworks, standards
+│       └── pack-config.yaml
 │
 ├── docs/                          # Generated artifacts (agents write here)
-│   ├── requirements.md
-│   ├── architecture.md
-│   ├── cost-analysis.md
-│   └── security-assessment.md
+│   ├── requirements.md            # Infrastructure Analyst
+│   ├── architecture.md            # Cloud Architect
+│   ├── data-architecture.md       # Data Architect
+│   ├── integration.md             # Integration Architect
+│   ├── platform.md                # Platform Engineer
+│   ├── cost-analysis.md           # Cost Optimizer
+│   ├── security-assessment.md     # Security Reviewer
+│   ├── governance.md              # Architecture Governor
+│   └── architecture/
+│       ├── decisions/             # ADRs
+│       ├── tech-radar.md          # Technology radar
+│       ├── standards/             # Coding standards
+│       └── reviews/               # Architecture reviews
 │
-├── .claude/commands/              # Claude Code slash commands
-│   ├── cloud-analyst.md
-│   ├── cloud-architect.md
-│   ├── cloud-cost.md
-│   └── cloud-security.md
-│
-├── knowledge/                     # Reference materials (old structure, can keep for reference)
-├── templates/                     # Old templates (archived)
-└── agents/                        # Old agents (archived)
+└── .claude/commands/              # Claude Code slash commands
+    ├── cloud-analyst.md           # /cloud-analyst
+    ├── cloud-architect.md         # /cloud-architect
+    ├── cloud-cost.md              # /cloud-cost
+    ├── cloud-security.md          # /cloud-security
+    ├── data-architect.md          # /data-architect
+    ├── integration-architect.md   # /integration-architect
+    ├── platform-engineer.md       # /platform-engineer
+    └── architecture-governor.md   # /architecture-governor
 ```
 
 ## Quick Start
@@ -94,11 +140,24 @@ bmad-architecture-agent/
 
 Use the slash commands to activate agents directly:
 
+**Cloud Infrastructure:**
 ```
-/cloud-analyst      # Start with Infrastructure Analyst
-/cloud-architect    # Move to Cloud Architect
-/cloud-cost         # Analyze costs
-/cloud-security     # Security review
+/cloud-analyst      # Requirements gathering (Alex)
+/cloud-architect    # Cloud design (Morgan)
+/cloud-cost         # Cost analysis (Taylor)
+/cloud-security     # Security review (Jordan)
+```
+
+**Data & Integration:**
+```
+/data-architect     # Database & data pipelines (Casey)
+/integration-architect  # APIs & messaging (River)
+```
+
+**Platform & Governance:**
+```
+/platform-engineer  # CI/CD & Kubernetes (Sam)
+/architecture-governor  # ADRs & reviews (Quinn)
 ```
 
 Each command:
@@ -126,86 +185,153 @@ If using the full BMAD software development workflow, these agents can supplemen
 3. Continue with core BMAD `architect` for application architecture
 4. Use `cost-optimizer` and `security-reviewer` for validation
 
-## Workflow Example
+## Workflow Examples
 
-### Complete Cloud Architecture Design
+### Complete Architecture Design (Full Workflow)
 
-**Step 1: Requirements Analysis**
+**Step 1: Governance - Initial ADRs (Optional but recommended)**
+```
+/architecture-governor
+*create-adr
+```
+Document key architectural decisions upfront. Creates ADRs in `docs/architecture/decisions/`.
+
+**Step 2: Requirements Analysis**
 ```
 /cloud-analyst
-```
-Agent greets you as Alex and shows commands. Then:
-```
 *analyze
 ```
-Follow the interactive prompts to gather requirements. Output saved to `docs/requirements.md`.
+Gather requirements. Output: `docs/requirements.md`.
 
-**Step 2: Architecture Design**
+**Step 3: Cloud Infrastructure Design**
 ```
 /cloud-architect
-```
-Agent greets you as Morgan. The agent automatically reads `docs/requirements.md`. Then:
-```
 *design
 ```
-Follow prompts to design the solution. Output saved to `docs/architecture.md`.
+Design cloud architecture. Output: `docs/architecture.md`.
 
-**Step 3: Cost Analysis**
+**Step 4: Data Architecture**
+```
+/data-architect
+*design-schema
+*design-pipeline
+```
+Design database and data pipelines. Output: `docs/data-architecture.md`.
+
+**Step 5: Integration Design**
+```
+/integration-architect
+*design-api
+*design-messaging
+```
+Design APIs and integrations. Output: `docs/integration.md`.
+
+**Step 6: Platform Engineering**
+```
+/platform-engineer
+*design-pipeline
+*design-kubernetes
+```
+Design CI/CD and deployment. Output: `docs/platform.md`.
+
+**Step 7: Cost Analysis**
 ```
 /cloud-cost
-```
-Agent greets you as Taylor. The agent reads `docs/architecture.md`. Then:
-```
 *analyze
 ```
-Provides cost projections. Output saved to `docs/cost-analysis.md`.
+Analyze costs. Output: `docs/cost-analysis.md`.
 
-**Step 4: Security Review**
+**Step 8: Security Review**
 ```
 /cloud-security
-```
-Agent greets you as Jordan. The agent reads all previous docs. Then:
-```
 *review
 ```
-Performs security assessment. Output saved to `docs/security-assessment.md`.
+Security assessment. Output: `docs/security-assessment.md`.
 
-**Done!** You now have complete architecture documentation in `docs/`.
+**Step 9: Final Architecture Review**
+```
+/architecture-governor
+*review-architecture
+```
+Comprehensive review. Output: `docs/architecture/reviews/`.
+
+**Done!** Complete architecture documentation across all domains.
+
+### Quick Cloud-Only Workflow
+
+For cloud-focused projects:
+```
+/cloud-analyst → /cloud-architect → /cloud-cost → /cloud-security
+```
+
+### Data-Focused Workflow
+
+For data engineering projects:
+```
+/cloud-analyst → /data-architect → /integration-architect → /platform-engineer
+```
 
 ## Agent Commands
 
 Each agent has commands (use `*` prefix):
 
-### Infrastructure Analyst
+### Infrastructure Analyst (Alex)
 - `*analyze` - Requirements analysis
 - `*assess-feasibility` - Technical feasibility
 - `*create-requirements-doc` - Generate requirements document
-- `*help` - Show all commands
-- `*exit` - Exit agent
+- `*help`, `*exit`
 
-### Cloud Architect
+### Cloud Architect (Morgan)
 - `*design` - Architecture design
 - `*select-services` - Cloud service selection
 - `*create-architecture-doc` - Generate architecture document
 - `*compare-platforms` - AWS vs Azure vs GCP comparison
-- `*help` - Show all commands
-- `*exit` - Exit agent
+- `*help`, `*exit`
 
-### Cost Optimizer
+### Data Architect (Casey)
+- `*design-schema` - Database schema design
+- `*design-pipeline` - ETL/ELT pipeline design
+- `*design-migration` - Data migration strategy
+- `*optimize-database` - Performance optimization
+- `*create-erd` - Entity-Relationship Diagram
+- `*help`, `*exit`
+
+### Integration Architect (River)
+- `*design-api` - Design REST, GraphQL, or gRPC API
+- `*design-messaging` - Message queue/pub-sub architecture
+- `*design-event-driven` - Event-driven system design
+- `*create-api-spec` - Generate OpenAPI specification
+- `*help`, `*exit`
+
+### Platform Engineer (Sam)
+- `*design-pipeline` - CI/CD pipeline design
+- `*design-kubernetes` - Kubernetes architecture
+- `*design-iac` - Infrastructure as Code strategy
+- `*design-observability` - Monitoring and logging
+- `*design-gitops` - GitOps workflow
+- `*help`, `*exit`
+
+### Cost Optimizer (Taylor)
 - `*analyze` - Cost analysis
 - `*calculate-tco` - Total Cost of Ownership
+- `*optimize` - Cost optimization recommendations
 - `*create-cost-report` - Generate cost report
-- `*optimize` - Optimization recommendations
-- `*help` - Show all commands
-- `*exit` - Exit agent
+- `*help`, `*exit`
 
-### Security Reviewer
+### Security Reviewer (Jordan)
 - `*review` - Security review
 - `*assess-compliance` - Compliance validation (GDPR, HIPAA, etc.)
 - `*threat-model` - Threat modeling
 - `*create-security-assessment` - Generate security report
-- `*help` - Show all commands
-- `*exit` - Exit agent
+- `*help`, `*exit`
+
+### Architecture Governor (Quinn)
+- `*create-adr` - Architecture Decision Record
+- `*review-architecture` - Comprehensive architecture review
+- `*update-tech-radar` - Update technology radar
+- `*define-standards` - Create coding/architecture standards
+- `*assess-tech-debt` - Technical debt assessment
+- `*help`, `*exit`
 
 ## Knowledge Base
 
@@ -350,41 +476,52 @@ Create `expansion-packs/cloud-architecture/templates/my-template.yaml` with docu
 
 Add service catalogs, pricing data, and compliance requirements to `expansion-packs/cloud-architecture/data/`.
 
-## Comparison: Old vs New Implementation
+## Complete Architecture Suite Summary
 
-### What We Had Before (Python Framework)
+### What This Suite Provides
 
-- Python orchestration code (`bmad/core/`)
-- API calls to Claude
-- Programmatic agent execution
-- File-based but with Python layer
+**8 Specialized Architecture Agents** covering:
+- ✅ Requirements & feasibility analysis
+- ✅ Cloud infrastructure design (AWS, Azure, GCP)
+- ✅ Database design & data pipelines
+- ✅ API design & system integration
+- ✅ CI/CD, Kubernetes, Infrastructure as Code
+- ✅ Cost analysis & optimization
+- ✅ Security assessment & compliance
+- ✅ Architecture governance & decision management
 
-### What We Have Now (True BMAD)
+**Comprehensive Knowledge Base**:
+- Cloud service catalogs (AWS, Azure, GCP)
+- Architecture patterns (microservices, serverless, event-driven, data lakes)
+- Best practices (security, scalability, performance, cost optimization)
+- Compliance frameworks (GDPR, HIPAA, PCI-DSS, SOX, ISO 27001)
+- Database patterns & data engineering
+- API design patterns (REST, GraphQL, gRPC)
+- DevOps & platform engineering patterns
 
-- Pure markdown agents with YAML config
-- No code execution - AI reads prompts directly
-- Native IDE integration (Claude Code, Cursor)
-- Can bundle for web UI (ChatGPT, Gemini)
-- Part of BMAD ecosystem
+**Output Documentation**:
+- Requirements documents
+- Architecture diagrams and specs
+- ERDs and data dictionaries
+- API specifications (OpenAPI)
+- Pipeline and infrastructure configs
+- Cost analysis reports
+- Security assessments
+- Architecture Decision Records (ADRs)
+- Technology radar
+- Standards documentation
 
-### Why This is Better
+### Real-World Use Cases
 
-1. **True BMAD Compliance**: Follows official BMAD-METHOD framework
-2. **No Dependencies**: Just markdown files, no Python required
-3. **IDE Native**: Works directly in Claude Code without API calls
-4. **Portable**: Same agents work in IDE or web UI
-5. **Maintainable**: Update prompts, not code
-6. **Extensible**: Create new agents easily
-7. **Community**: Part of larger BMAD ecosystem
+**Enterprise Application**: Full workflow from requirements → cloud → data → APIs → platform → cost → security → governance
 
-## Old Python Implementation
+**Data Platform**: Focus on data architecture, integration, and platform engineering
 
-The previous Python orchestration framework is archived in:
-- `bmad/` - Python code (archived, not needed)
-- `examples/` - Python examples (archived)
-- `bmad-*.md` slash commands (replaced)
+**API-First Product**: Requirements → integration architect → platform engineer → security
 
-You can safely ignore or delete these. The BMAD framework doesn't need them.
+**Cloud Migration**: Requirements → cloud architect → data architect → platform engineer → cost → security
+
+**Technical Debt Assessment**: Architecture governor reviews existing architecture, creates ADRs, assesses technical debt
 
 ## Documentation
 

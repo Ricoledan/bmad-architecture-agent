@@ -1,0 +1,112 @@
+# Entity-Relationship Diagram (ERD) Template
+
+project:
+  name: "[Project Name]"
+  version: "1.0"
+  date: "[YYYY-MM-DD]"
+  author: "Casey - Data Architect"
+
+overview:
+  description: "[High-level description of the data model]"
+  scope: "[What business domains are covered]"
+  database_type: "[PostgreSQL, MySQL, MongoDB, etc.]"
+
+entities:
+  - name: "[EntityName]"
+    description: "[Business description of this entity]"
+    table_name: "[physical_table_name]"
+    type: "[fact, dimension, transactional, reference]"
+    estimated_rows: "[Expected record count]"
+    growth_rate: "[Records per month/year]"
+
+    attributes:
+      - name: "[attribute_name]"
+        column_name: "[physical_column_name]"
+        data_type: "[VARCHAR(255), INTEGER, TIMESTAMP, etc.]"
+        nullable: [true/false]
+        primary_key: [true/false]
+        foreign_key: [true/false]
+        unique: [true/false]
+        default_value: "[default if any]"
+        description: "[Business meaning and usage]"
+        validation_rules: "[Any constraints or business rules]"
+
+    indexes:
+      - name: "[index_name]"
+        type: "[B-tree, Hash, GIN, etc.]"
+        columns: ["[column1]", "[column2]"]
+        unique: [true/false]
+        purpose: "[Why this index exists]"
+
+    constraints:
+      - type: "[CHECK, UNIQUE, etc.]"
+        definition: "[constraint logic]"
+        rationale: "[Why this constraint]"
+
+relationships:
+  - name: "[Relationship Description]"
+    from_entity: "[Entity1]"
+    to_entity: "[Entity2]"
+    cardinality: "[one-to-one, one-to-many, many-to-many]"
+    foreign_key:
+      column: "[fk_column_name]"
+      references: "[referenced_table.column]"
+      on_delete: "[CASCADE, SET NULL, RESTRICT]"
+      on_update: "[CASCADE, RESTRICT]"
+    description: "[Business meaning of relationship]"
+
+business_rules:
+  - rule: "[Business rule description]"
+    implementation: "[How enforced: constraint, trigger, application logic]"
+    entities_affected: ["[Entity1]", "[Entity2]"]
+
+access_patterns:
+  - name: "[Common Query Pattern]"
+    description: "[What this query does]"
+    frequency: "[High/Medium/Low]"
+    tables_involved: ["[Table1]", "[Table2]"]
+    supporting_indexes: ["[index1]", "[index2]"]
+    estimated_performance: "[Expected query time]"
+
+data_quality:
+  - entity: "[EntityName]"
+    quality_checks:
+      - type: "[uniqueness, completeness, validity, etc.]"
+        description: "[What to validate]"
+        threshold: "[Acceptable quality level]"
+
+security:
+  - entity: "[EntityName]"
+    classification: "[Public, Internal, Confidential, Restricted]"
+    encryption_required: [true/false]
+    pii_data: [true/false]
+    access_control: "[Row-level, column-level, table-level]"
+    compliance: ["[GDPR, HIPAA, PCI-DSS, etc.]"]
+
+performance_considerations:
+  partitioning:
+    - table: "[table_name]"
+      strategy: "[Range, List, Hash]"
+      partition_key: "[column_name]"
+      rationale: "[Why partitioned]"
+
+  archival:
+    - table: "[table_name]"
+      retention_period: "[e.g., 7 years]"
+      archive_strategy: "[Move to cold storage, delete, etc.]"
+
+migration_notes:
+  - source_system: "[Legacy System Name]"
+    mapping_complexity: "[Simple, Moderate, Complex]"
+    transformation_required: "[Yes/No and details]"
+    data_quality_issues: "[Known issues in source]"
+
+metadata:
+  data_dictionary_location: "[Path to detailed data dictionary]"
+  diagram_file: "[Path to ERD diagram image/file]"
+  ddl_scripts: "[Path to CREATE TABLE scripts]"
+  version_history:
+    - version: "1.0"
+      date: "[YYYY-MM-DD]"
+      changes: "[What changed]"
+      author: "[Name]"

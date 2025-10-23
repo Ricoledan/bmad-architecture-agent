@@ -1,0 +1,211 @@
+# Architecture Decision Record Template
+# Based on MADR (Markdown Any Decision Record) format
+
+adr:
+  number: "[ADR-XXXX]"
+  title: "[Short descriptive title]"
+  date: "[YYYY-MM-DD]"
+  status: "[proposed, accepted, deprecated, superseded]"
+  supersedes: "[ADR-YYYY if applicable]"
+  superseded_by: "[ADR-ZZZZ if applicable]"
+
+  authors:
+    - name: "[Author Name]"
+      role: "[Role]"
+
+  reviewers:
+    - name: "[Reviewer Name]"
+      role: "[Role]"
+      approval: "[approved, pending, rejected]"
+
+context:
+  description: |
+    [Describe the context and problem statement]
+    - What is the issue we're trying to solve?
+    - What are the forces at play?
+    - What constraints do we have?
+
+  background: |
+    [Optional: Additional background information]
+    - Current state
+    - Historical context
+    - Related decisions
+
+  assumptions:
+    - "[Assumption 1]"
+    - "[Assumption 2]"
+
+  constraints:
+    - "[Constraint 1 - e.g., budget, timeline, skills]"
+    - "[Constraint 2]"
+
+decision:
+  choice: "[What decision are we making?]"
+
+  rationale: |
+    [Why did we make this decision?]
+    - Key reasons for this choice
+    - How it addresses the problem
+    - Why it's better than alternatives
+
+  implementation: |
+    [How will this decision be implemented?]
+    - Steps needed
+    - Timeline
+    - Who is responsible
+
+decision_drivers:
+  - driver: "[Business driver or requirement]"
+    weight: "[High, Medium, Low]"
+    description: "[Why this matters]"
+
+  - driver: "[Technical driver]"
+    weight: "[High, Medium, Low]"
+    description: "[Why this matters]"
+
+options_considered:
+  - option: "[Option 1 Name]"
+    description: "[What is this option?]"
+
+    pros:
+      - "[Pro 1]"
+      - "[Pro 2]"
+
+    cons:
+      - "[Con 1]"
+      - "[Con 2]"
+
+    score: "[Weighted score if using scoring]"
+
+  - option: "[Option 2 Name]"
+    description: "[What is this option?]"
+
+    pros:
+      - "[Pro 1]"
+      - "[Pro 2]"
+
+    cons:
+      - "[Con 1]"
+      - "[Con 2]"
+
+    score: "[Weighted score if using scoring]"
+
+  - option: "[Selected Option - if different from above]"
+    description: "[What is this option?]"
+
+    pros:
+      - "[Pro 1]"
+      - "[Pro 2]"
+
+    cons:
+      - "[Con 1]"
+      - "[Con 2]"
+
+    score: "[Weighted score if using scoring]"
+
+consequences:
+  positive:
+    - consequence: "[Positive outcome 1]"
+      impact: "[How this helps]"
+    - consequence: "[Positive outcome 2]"
+      impact: "[How this helps]"
+
+  negative:
+    - consequence: "[Negative outcome or trade-off 1]"
+      impact: "[How this affects us]"
+      mitigation: "[How we'll address this]"
+    - consequence: "[Negative outcome or trade-off 2]"
+      impact: "[How this affects us]"
+      mitigation: "[How we'll address this]"
+
+  neutral:
+    - "[Neutral consequence or observation]"
+
+implications:
+  architecture:
+    - "[Impact on system architecture]"
+    - "[Changes to architecture patterns]"
+
+  teams:
+    - "[Impact on team structure or workflows]"
+    - "[Training or skill development needed]"
+
+  operations:
+    - "[Impact on operations and maintenance]"
+    - "[Monitoring or alerting changes]"
+
+  cost:
+    estimated_cost: "[One-time and recurring costs]"
+    cost_benefit: "[Expected value or savings]"
+
+  timeline:
+    implementation_time: "[Time to implement]"
+    migration_time: "[Time to migrate if applicable]"
+
+risks:
+  - risk: "[Risk 1]"
+    likelihood: "[High, Medium, Low]"
+    impact: "[High, Medium, Low]"
+    mitigation: "[How we'll mitigate this risk]"
+
+  - risk: "[Risk 2]"
+    likelihood: "[High, Medium, Low]"
+    impact: "[High, Medium, Low]"
+    mitigation: "[How we'll mitigate this risk]"
+
+validation:
+  success_criteria:
+    - "[How we'll know this decision is successful]"
+    - "[Measurable outcomes]"
+
+  validation_method: "[How we'll validate this works]"
+  review_date: "[YYYY-MM-DD - when to review this decision]"
+
+references:
+  - title: "[Reference 1]"
+    url: "[URL or document location]"
+    type: "[documentation, research, blog post, etc.]"
+
+  - title: "[Reference 2]"
+    url: "[URL or document location]"
+    type: "[documentation, research, blog post, etc.]"
+
+related_decisions:
+  - adr: "[ADR-YYYY]"
+    relationship: "[depends on, related to, supersedes, etc.]"
+    description: "[How these decisions relate]"
+
+metadata:
+  tags: ["[category]", "[technology]", "[domain]"]
+  stakeholders: ["[Team or person affected]"]
+  review_schedule: "[Monthly, Quarterly, Annually, As needed]"
+
+  version_history:
+    - version: "1.0"
+      date: "[YYYY-MM-DD]"
+      author: "[Name]"
+      changes: "[What changed]"
+      status: "[proposed, accepted, etc.]"
+
+# Example Usage:
+#
+# adr:
+#   number: "ADR-001"
+#   title: "Use PostgreSQL for primary database"
+#   date: "2024-01-15"
+#   status: "accepted"
+#
+# context:
+#   description: |
+#     We need to select a primary database for our e-commerce application.
+#     The system needs to handle transactional data with strong consistency,
+#     support complex queries, and scale to millions of records.
+#
+# decision:
+#   choice: "We will use PostgreSQL as our primary relational database"
+#   rationale: |
+#     PostgreSQL provides ACID compliance, excellent JSON support,
+#     mature ecosystem, and is proven at scale. It meets all our
+#     functional and non-functional requirements.
+#
+# [... rest of template filled in ...]

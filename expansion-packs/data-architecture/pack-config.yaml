@@ -1,0 +1,69 @@
+# Data Architecture Expansion Pack Configuration
+# Powered by BMAD™ Core
+
+pack:
+  id: data-architecture
+  name: Data Architecture
+  version: 1.0.0
+  description: Comprehensive data architecture design, modeling, and pipeline engineering
+  author: BMAD Architecture Suite
+  license: MIT
+
+# Agents provided by this pack
+agents:
+  - id: data-architect
+    name: Casey
+    file: agents/data-architect.md
+    title: Data Architect
+    icon: 🗄️
+    whenToUse: Use for database design, data modeling, data pipelines, data governance, and migration strategies
+
+# Tasks provided by this pack
+tasks:
+  - design-database-schema
+  - design-data-pipeline
+  - design-data-migration
+  - data-governance-planning
+  - create-erd
+  - optimize-database
+  - design-data-warehouse
+
+# Templates provided by this pack
+templates:
+  - erd-template
+  - data-dictionary-template
+  - pipeline-spec-template
+  - migration-plan-template
+  - data-governance-template
+
+# Knowledge base categories
+knowledge:
+  patterns:
+    - database-patterns
+    - data-lake-patterns
+    - data-warehouse-patterns
+    - etl-patterns
+    - streaming-patterns
+  best-practices:
+    - normalization
+    - indexing
+    - partitioning
+    - replication
+    - backup-recovery
+  technologies:
+    - relational-databases
+    - nosql-databases
+    - data-warehouses
+    - streaming-platforms
+
+# Integration with other packs
+integrations:
+  - cloud-architecture  # Works with cloud infrastructure
+  - platform-engineering  # Coordinates on data pipelines
+
+# Output locations
+outputs:
+  dataArchitecture: docs/data-architecture.md
+  erdDiagrams: docs/data-architecture/erd
+  pipelineSpecs: docs/data-architecture/pipelines
+  migrationPlans: docs/data-architecture/migrations

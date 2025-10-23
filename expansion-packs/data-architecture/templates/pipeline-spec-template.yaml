@@ -1,0 +1,203 @@
+# Data Pipeline Specification Template
+
+pipeline:
+  name: "[Pipeline Name]"
+  id: "[unique-pipeline-id]"
+  version: "1.0"
+  type: "[batch, streaming, hybrid]"
+  description: "[What this pipeline does]"
+  owner: "[Team or person responsible]"
+  created_date: "[YYYY-MM-DD]"
+
+schedule:
+  type: "[cron, event-driven, manual]"
+  cron_expression: "[0 2 * * * for daily at 2 AM]"
+  timezone: "[UTC, America/New_York, etc.]"
+  depends_on: ["[upstream-pipeline-id]"]
+  sla:
+    completion_time: "[Expected completion time]"
+    data_freshness: "[How recent data must be]"
+    alert_threshold: "[When to alert if delayed]"
+
+sources:
+  - name: "[Source System Name]"
+    type: "[database, api, file, stream]"
+    connection:
+      type: "[PostgreSQL, REST API, S3, Kafka, etc.]"
+      host: "[hostname or connection string]"
+      credentials: "[Secret manager reference]"
+      connection_pool_size: "[if applicable]"
+
+    extraction:
+      method: "[full, incremental, cdc]"
+      incremental_key: "[timestamp_column or id_column]"
+      batch_size: "[records per batch]"
+      parallelism: "[number of parallel readers]"
+
+    data_format: "[CSV, JSON, Parquet, Avro, etc.]"
+    schema:
+      location: "[path to schema definition]"
+      version: "[schema version]"
+      validation: "[strict, lenient]"
+
+    estimated_volume:
+      records_per_run: "[Number of records]"
+      data_size: "[GB per run]"
+      growth_rate: "[Monthly/yearly growth]"
+
+transformations:
+  - name: "[Transformation Step Name]"
+    order: [1, 2, 3, ...]
+    type: "[cleansing, enrichment, aggregation, etc.]"
+    description: "[What this transformation does]"
+
+    operations:
+      - operation: "[deduplicate, filter, join, aggregate, etc.]"
+        logic: "[Detailed transformation logic]"
+        columns_affected: ["[column1]", "[column2]"]
+
+      - operation: "[data_quality_check]"
+        validation_rules:
+          - rule: "[e.g., email format validation]"
+            action_on_failure: "[reject, quarantine, flag]"
+
+    business_rules:
+      - rule: "[Business rule description]"
+        implementation: "[How it's implemented in code]"
+
+    dependencies:
+      reference_data: ["[lookup_table1]", "[lookup_table2]"]
+      previous_steps: ["[step_name]"]
+
+    performance:
+      expected_duration: "[Time to complete]"
+      resource_requirements: "[CPU, memory needs]"
+
+destinations:
+  - name: "[Destination System Name]"
+    type: "[data warehouse, data lake, database, etc.]"
+    connection:
+      type: "[Snowflake, Redshift, BigQuery, S3, etc.]"
+      target: "[database.schema.table or bucket/path]"
+      credentials: "[Secret manager reference]"
+
+    loading:
+      method: "[full_refresh, append, upsert, scd_type_2]"
+      upsert_keys: ["[key1]", "[key2]"]
+      batch_size: "[records per batch]"
+      parallelism: "[number of parallel writers]"
+
+    partitioning:
+      enabled: [true/false]
+      partition_key: "[date_column]"
+      partition_type: "[daily, monthly, etc.]"
+
+    schema:
+      location: "[path to target schema]"
+      schema_evolution: "[allow, strict]"
+
+data_quality:
+  pre_load_checks:
+    - check: "[row_count_validation]"
+      threshold: "[min/max expected records]"
+      action: "[alert, abort, continue]"
+
+    - check: "[schema_validation]"
+      expected_schema: "[reference to schema]"
+      action: "[abort, alert]"
+
+    - check: "[duplicate_detection]"
+      unique_keys: ["[key1]", "[key2]"]
+      action: "[remove duplicates, alert]"
+
+  post_load_checks:
+    - check: "[reconciliation]"
+      method: "[count, checksum, sample]"
+      tolerance: "[acceptable variance %]"
+
+    - check: "[business_rule_validation]"
+      rules: ["[list of business rules]"]
+      sample_size: "[percentage or count]"
+
+error_handling:
+  retry_policy:
+    max_retries: [3]
+    backoff_strategy: "[exponential, linear]"
+    retry_on: ["[transient errors]"]
+
+  failure_actions:
+    - error_type: "[connection_failure]"
+      action: "[retry, alert, abort]"
+    - error_type: "[data_quality_failure]"
+      action: "[quarantine, alert, continue]"
+
+  dead_letter_queue:
+    enabled: [true/false]
+    location: "[S3 bucket or table for failed records]"
+    retention: "[days to keep failed records]"
+
+monitoring:
+  metrics:
+    - metric: "[records_processed]"
+      type: "[counter, gauge]"
+      alert_threshold: "[value]"
+
+    - metric: "[processing_duration]"
+      type: "[duration]"
+      alert_threshold: "[SLA threshold]"
+
+    - metric: "[data_quality_score]"
+      type: "[gauge]"
+      alert_threshold: "[minimum acceptable score]"
+
+  logging:
+    level: "[INFO, DEBUG, ERROR]"
+    destination: "[CloudWatch, Datadog, ELK, etc.]"
+    retention: "[days]"
+
+  alerts:
+    - name: "[Pipeline Failure Alert]"
+      condition: "[pipeline status = failed]"
+      severity: "[critical, warning, info]"
+      notification: ["[email, slack, pagerduty]"]
+      recipients: ["[team@example.com]"]
+
+lineage:
+  upstream_systems: ["[system1]", "[system2]"]
+  downstream_systems: ["[system1]", "[system2]"]
+  data_lineage_tool: "[Apache Atlas, AWS Glue, etc.]"
+  impact_analysis: "[Who/what is affected if this pipeline fails]"
+
+testing:
+  unit_tests:
+    - test: "[Test transformation logic]"
+      input: "[Sample input data]"
+      expected_output: "[Expected result]"
+
+  integration_tests:
+    - test: "[End-to-end pipeline test]"
+      test_data_location: "[Path to test dataset]"
+      validation_query: "[SQL to validate results]"
+
+operations:
+  backfill_procedure: "[How to reprocess historical data]"
+  manual_trigger: "[How to manually run pipeline]"
+  rollback_procedure: "[How to rollback if issues found]"
+  runbook_location: "[Link to operational runbook]"
+
+compliance:
+  data_classification: "[Public, Internal, Confidential]"
+  pii_handling: "[How PII is processed and protected]"
+  retention_policy: "[Data retention requirements]"
+  audit_logging: "[What is logged for compliance]"
+  regulations: ["[GDPR, HIPAA, etc.]"]
+
+metadata:
+  documentation: "[Link to detailed documentation]"
+  code_repository: "[Git repo URL]"
+  contact: "[Team email or Slack channel]"
+  version_history:
+    - version: "1.0"
+      date: "[YYYY-MM-DD]"
+      changes: "[What changed]"
+      author: "[Name]"
