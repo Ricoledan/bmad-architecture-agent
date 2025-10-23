@@ -1,0 +1,53 @@
+# BMAD Core Configuration for Cloud Architecture Project
+# Powered by BMAD™ Core
+
+markdownExploder: true
+
+# Expansion Packs
+expansionPacks:
+  - cloud-architecture
+
+# Quality Assurance
+qa:
+  qaLocation: docs/qa
+
+# Requirements Documents
+requirements:
+  requirementsFile: docs/requirements.md
+  requirementsVersion: v1
+  requirementsLocation: docs/requirements
+
+# Architecture Documents
+architecture:
+  architectureFile: docs/architecture.md
+  architectureVersion: v1
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+
+# Cost Analysis
+costAnalysis:
+  costAnalysisFile: docs/cost-analysis.md
+  costAnalysisLocation: docs/cost-analysis
+
+# Security Assessment
+security:
+  securityAssessmentFile: docs/security-assessment.md
+  securityLocation: docs/security
+
+# Custom Technical Documents
+customTechnicalDocuments:
+  - docs/architecture/tech-stack.md
+  - docs/architecture/deployment-plan.md
+  - docs/architecture/monitoring-strategy.md
+
+# Development Story Location (if using with BMAD core workflow)
+devStoryLocation: docs/stories
+
+# Slash Command Prefix
+slashPrefix: CloudArch
+
+# Project Metadata
+project:
+  name: Cloud Architecture Agent
+  description: BMAD expansion pack for cloud architecture design and analysis
+  version: 1.0.0

@@ -1,107 +1,14 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# Environment
 .env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+.env.local
+.env.*.local
 
 # IDE
 .vscode/
@@ -109,26 +16,36 @@ dmypy.json
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Output directories
-output/
-reports/
-diagrams/
+# BMAD Generated Documentation
+docs/requirements.md
+docs/architecture.md
+docs/cost-analysis.md
+docs/security-assessment.md
+docs/prd/
+docs/architecture/
+docs/stories/
+docs/qa/
+
+# Keep docs structure but ignore generated content
+!docs/.gitkeep
+!docs/architecture/.gitkeep
+!docs/stories/.gitkeep
+!docs/qa/.gitkeep
+
+# Archive
+.archive/
 
 # Temporary files
 *.tmp
 *.temp
-
-# Project specific
-projects/*/
-!projects/.gitkeep
+*.log
 
 # Cloud credentials
 *.pem
 *.key
-*.json
 credentials/
+
+# OS files
+Thumbs.db

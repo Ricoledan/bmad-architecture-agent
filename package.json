@@ -1,0 +1,26 @@
+{
+  "name": "bmad-architecture-agent",
+  "version": "1.0.0",
+  "description": "A comprehensive cloud architecture design and analysis agent built using the **BMAD (Building Multi-Agent Designs)** framework. This implementation provides a fully functional multi-agent orchestration system powered by Claude AI.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricoledan/bmad-architecture-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricoledan/bmad-architecture-agent/issues"
+  },
+  "homepage": "https://github.com/Ricoledan/bmad-architecture-agent#readme",
+  "dependencies": {
+    "bmad-method": "^4.44.1"
+  }
+}

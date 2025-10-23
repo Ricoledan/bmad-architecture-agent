@@ -1,8 +1,0 @@
-# Python dependencies for BMAD tools
-pyyaml>=6.0
-requests>=2.28.0
-boto3>=1.26.0
-azure-mgmt-resource>=23.0.0
-google-cloud-resource-manager>=1.10.0
-matplotlib>=3.6.0
-diagrams>=0.23.0

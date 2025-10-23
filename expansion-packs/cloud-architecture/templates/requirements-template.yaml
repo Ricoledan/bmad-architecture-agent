@@ -1,0 +1,178 @@
+# Cloud Architecture Requirements Template
+
+name: requirements
+title: Cloud Architecture Requirements Document
+description: Comprehensive requirements template for cloud architecture projects
+version: 1.0.0
+elicit: true
+
+sections:
+  - id: executive-summary
+    title: Executive Summary
+    prompts:
+      - "Provide a concise overview of the project (2-3 paragraphs)"
+      - "What is the business problem being solved?"
+      - "What are the expected benefits and outcomes?"
+
+  - id: business-objectives
+    title: Business Objectives
+    prompts:
+      - "What are the primary business objectives?"
+      - "What are the success criteria and KPIs?"
+      - "What is the business impact if this project is not completed?"
+
+  - id: stakeholders
+    title: Stakeholder Analysis
+    prompts:
+      - "Who are the key stakeholders (business users, technical teams, decision makers)?"
+      - "What are each stakeholder's expectations and concerns?"
+      - "Who has approval authority?"
+
+  - id: functional-requirements
+    title: Functional Requirements
+    prompts:
+      - "What features and capabilities must the system provide?"
+      - "What are the key user workflows and use cases?"
+      - "What integrations with external systems are required?"
+    subsections:
+      - User Stories
+      - Use Cases
+      - Feature List
+      - Integration Requirements
+
+  - id: non-functional-requirements
+    title: Non-Functional Requirements
+    subsections:
+      - Performance:
+          prompts:
+            - "What are the response time requirements?"
+            - "What throughput is expected (requests/sec, transactions/sec)?"
+            - "What are acceptable latency levels?"
+      - Scalability:
+          prompts:
+            - "What is the expected user growth?"
+            - "What are peak load projections?"
+            - "What scaling requirements exist (vertical, horizontal)?"
+      - Availability:
+          prompts:
+            - "What uptime is required (99.9%, 99.99%, 99.999%)?"
+            - "What are the disaster recovery requirements (RPO, RTO)?"
+            - "What maintenance windows are acceptable?"
+      - Security:
+          prompts:
+            - "What are the authentication and authorization requirements?"
+            - "What data protection requirements exist?"
+            - "What security compliance standards apply?"
+
+  - id: technical-requirements
+    title: Technical Requirements
+    prompts:
+      - "What existing systems must be integrated?"
+      - "What data volume and velocity is expected?"
+      - "What are the data retention requirements?"
+      - "What monitoring and observability needs exist?"
+
+  - id: compliance
+    title: Compliance and Regulatory Requirements
+    prompts:
+      - "What compliance frameworks apply (GDPR, HIPAA, PCI-DSS, SOX, ISO 27001)?"
+      - "What data privacy requirements exist?"
+      - "What audit and reporting requirements are needed?"
+
+  - id: constraints
+    title: Constraints
+    prompts:
+      - "What budget constraints exist?"
+      - "What timeline constraints apply?"
+      - "What technical constraints must be considered?"
+      - "What organizational or policy constraints exist?"
+
+  - id: assumptions-dependencies
+    title: Assumptions and Dependencies
+    prompts:
+      - "What assumptions are we making?"
+      - "What external dependencies exist?"
+      - "What could invalidate our assumptions?"
+
+  - id: risks
+    title: Initial Risk Assessment
+    prompts:
+      - "What technical risks have been identified?"
+      - "What are the major challenges?"
+      - "What mitigation strategies are proposed?"
+
+  - id: approval
+    title: Approval and Sign-off
+    prompts:
+      - "List stakeholders who have reviewed and approved these requirements"
+      - "Include approval dates"
+
+template: |
+  # Cloud Architecture Requirements
+
+  **Project**: {{project_name}}
+  **Version**: {{version}}
+  **Date**: {{date}}
+  **Author**: {{author}}
+
+  ## Executive Summary
+
+  {{executive_summary}}
+
+  ## Business Objectives
+
+  {{business_objectives}}
+
+  ### Success Criteria
+
+  {{success_criteria}}
+
+  ## Stakeholder Analysis
+
+  {{stakeholder_analysis}}
+
+  ## Functional Requirements
+
+  {{functional_requirements}}
+
+  ## Non-Functional Requirements
+
+  ### Performance Requirements
+
+  {{performance_requirements}}
+
+  ### Scalability Requirements
+
+  {{scalability_requirements}}
+
+  ### Availability Requirements
+
+  {{availability_requirements}}
+
+  ### Security Requirements
+
+  {{security_requirements}}
+
+  ## Technical Requirements
+
+  {{technical_requirements}}
+
+  ## Compliance and Regulatory Requirements
+
+  {{compliance_requirements}}
+
+  ## Constraints
+
+  {{constraints}}
+
+  ## Assumptions and Dependencies
+
+  {{assumptions_dependencies}}
+
+  ## Initial Risk Assessment
+
+  {{risk_assessment}}
+
+  ## Approval
+
+  {{approval_signoff}}

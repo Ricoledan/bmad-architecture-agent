@@ -1,1 +1,0 @@
-# BMAD Architecture Agent Tools

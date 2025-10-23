@@ -1,0 +1,32 @@
+# Cloud Architecture Expansion Pack Configuration
+pack:
+  id: cloud-architecture
+  name: Cloud Architecture Design & Analysis
+  version: 1.0.0
+  description: Specialized AI agents for cloud architecture design, cost optimization, security review, and multi-cloud service selection
+  author: Your Name
+  bmadVersion: ">=4.0.0"
+
+agents:
+  - infrastructure-analyst
+  - cloud-architect
+  - cost-optimizer
+  - security-reviewer
+
+categories:
+  - cloud
+  - architecture
+  - infrastructure
+  - devops
+
+keywords:
+  - aws
+  - azure
+  - gcp
+  - kubernetes
+  - terraform
+  - cloud-native
+  - microservices
+  - cost-optimization
+  - security
+  - compliance

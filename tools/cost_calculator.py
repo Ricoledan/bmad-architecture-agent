@@ -1,1 +1,0 @@
-# Cloud cost calculator tool
