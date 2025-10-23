@@ -1,0 +1,28 @@
+name: "AI & NLP Engineering"
+id: "ai-nlp"
+version: "1.0.0"
+description: "AI/NLP architecture for designing LLM orchestration systems, document analysis pipelines, entity extraction, and intelligent report generation"
+
+agents:
+  - id: "ai-nlp-architect"
+    name: "AI/NLP Architect"
+    file: "agents/ai-nlp-architect.md"
+    whenToUse: "Use for designing LLM architectures, NLP pipelines, RAG systems, entity extraction, and document understanding systems"
+
+slash_commands:
+  - name: "ai-nlp-architect"
+    description: "Activate the AI/NLP Architect agent for AI/NLP system design"
+    command: "ai-nlp-architect"
+
+dependencies:
+  - "cloud-architecture"  # For cloud AI services
+  - "data-architecture"    # For vector databases, knowledge graphs
+  - "integration-patterns" # For API design
+
+capabilities:
+  - "LLM orchestration and prompt engineering"
+  - "Document analysis and summarization"
+  - "Entity extraction and NER"
+  - "Semantic search and RAG"
+  - "Text generation and synthesis"
+  - "Multi-source document intelligence"

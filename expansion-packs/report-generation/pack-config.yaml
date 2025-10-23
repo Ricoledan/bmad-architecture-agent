@@ -1,0 +1,27 @@
+name: "Report Generation Architecture"
+id: "report-generation"
+version: "1.0.0"
+description: "Report generation architecture for template management, document rendering, and compliance-aware report creation"
+
+agents:
+  - id: "report-generation-architect"
+    name: "Report Generation Architect"
+    file: "agents/report-generation-architect.md"
+    whenToUse: "Use for designing report generation systems, template engines, PDF/Word rendering, and compliance-aware document creation"
+
+slash_commands:
+  - name: "report-generation-architect"
+    description: "Activate the Report Generation Architect for report generation system design"
+    command: "report-generation-architect"
+
+dependencies:
+  - "ai-nlp"               # For LLM-based generation
+  - "cloud-architecture"   # For compliance requirements
+
+capabilities:
+  - "Template engine design and management"
+  - "PDF and Word document generation"
+  - "Compliance-aware formatting (ICD 203, classification markings)"
+  - "Multi-format output (PDF, Word, HTML)"
+  - "Template versioning and validation"
+  - "Dynamic content rendering"

@@ -1,0 +1,28 @@
+name: "Document Processing Architecture"
+id: "document-processing"
+version: "1.0.0"
+description: "Document processing architecture for multi-format ingestion, parsing, OCR, and data extraction systems"
+
+agents:
+  - id: "document-processing-architect"
+    name: "Document Processing Architect"
+    file: "agents/document-processing-architect.md"
+    whenToUse: "Use for designing document ingestion, multi-format parsing, OCR, table extraction, and document classification systems"
+
+slash_commands:
+  - name: "document-processing-architect"
+    description: "Activate the Document Processing Architect for document ingestion system design"
+    command: "document-processing-architect"
+
+dependencies:
+  - "ai-nlp"              # For entity extraction, classification
+  - "data-architecture"    # For storage pipelines
+  - "cloud-architecture"   # For cloud document services
+
+capabilities:
+  - "Multi-format document parsing (PDF, Word, PowerPoint, images)"
+  - "OCR and text extraction"
+  - "Table and form extraction"
+  - "Document classification and routing"
+  - "Metadata extraction"
+  - "Document ingestion pipeline design"
